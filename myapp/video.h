@@ -1,13 +1,13 @@
 //
-//  audio.h
+//  video.h
 //  myapp
 //
 //  Created by tianyang on 2020/10/27.
 //  Copyright © 2020 tianyang. All rights reserved.
 //
 
-#ifndef audio_h
-#define audio_h
+#ifndef video_h
+#define video_h
 
 #include <stdio.h>
 #include <unistd.h>
@@ -17,7 +17,7 @@
 #include "libavcodec/avcodec.h"
 #include "libswresample/swresample.h"
 
-void set_status(int status);
-void record_audio(void);
+void set_video_status(int status);
+void record_video(void);
 
 #endif

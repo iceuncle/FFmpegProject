@@ -22,6 +22,7 @@
 		669A5FF1254C1FE900E57EEC /* libavcodec.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 669A5FF0254C1FE900E57EEC /* libavcodec.dylib */; };
 		669A5FF2254C1FE900E57EEC /* libavcodec.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 669A5FF0254C1FE900E57EEC /* libavcodec.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		66EE8BF4255149C8006FE609 /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 66EE8BF3255149C8006FE609 /* audio.c */; };
+		66EE8BFA25515074006FE609 /* video.c in Sources */ = {isa = PBXBuildFile; fileRef = 66EE8BF925515074006FE609 /* video.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,8 @@
 		669A5FF0254C1FE900E57EEC /* libavcodec.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.dylib; path = myapp/libs/libavcodec.dylib; sourceTree = "<group>"; };
 		66EE8BF2255149C8006FE609 /* audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
 		66EE8BF3255149C8006FE609 /* audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = audio.c; sourceTree = "<group>"; };
+		66EE8BF825515074006FE609 /* video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video.h; sourceTree = "<group>"; };
+		66EE8BF925515074006FE609 /* video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = video.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 		669A5FC425480E7A00E57EEC /* myapp */ = {
 			isa = PBXGroup;
 			children = (
+				66EE8BF925515074006FE609 /* video.c */,
+				66EE8BF825515074006FE609 /* video.h */,
 				66EE8BF3255149C8006FE609 /* audio.c */,
 				66EE8BF2255149C8006FE609 /* audio.h */,
 				669A5FC525480E7A00E57EEC /* AppDelegate.swift */,
@@ -196,6 +201,7 @@
 				66EE8BF4255149C8006FE609 /* audio.c in Sources */,
 				669A5FC825480E7A00E57EEC /* ViewController.swift in Sources */,
 				669A5FC625480E7A00E57EEC /* AppDelegate.swift in Sources */,
+				66EE8BFA25515074006FE609 /* video.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
