@@ -142,8 +142,43 @@ __ERROR:
     return NULL;
 }
 
+static void encode(AVCodecContext *enc_ctx,
+                   AVFrame *frame,
+                   AVPacket *newpkt,
+                   FILE *outfile) {
+    int ret = 0;
+    
+    if (frame) {
+        printf("send frame to encoder, pts=%lld", frame->pts);
+    }
+    
+    //送原始数据给编码器进行编码
+    ret = avcodec_send_frame(enc_ctx, frame);
+    if (ret < 0) {
+        printf("Error, Failed to send a frame for encoding\n");
+        exit(1);
+    }
+    
+    //从编码器获取编码好的数据
+    while (ret >= 0) {
+        ret = avcodec_receive_packet(enc_ctx, newpkt);
+        
+        //如果编码器数据不足时会返回 EAGAIN，或者到数据尾时会返回 AVERROR_EOF
+        if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+            return;
+        } else if(ret < 0) {
+            printf("Error, Failed to encode!\n");
+            exit(1);
+        }
+        
+        fwrite(newpkt->data, 1, newpkt->size, outfile);
+        av_packet_unref(newpkt);
+    }
+
+}
 
 void record_video() {
+    int base = 0;
     
     AVFormatContext *fmt_ctx = NULL;
     AVCodecContext *enc_ctx = NULL;
@@ -158,8 +193,13 @@ void record_video() {
     rec_status = 1;
     
     //create file
-    char *out = "/Users/tianyang/Desktop/av_base/video.yuv";
-    FILE *yuvoutFile = fopen(out, "wb+");
+    char *youvout = "/Users/tianyang/Desktop/av_base/video.yuv";
+    FILE *yuvoutFile = fopen(youvout, "wb+");
+    
+    char *out = "/Users/tianyang/Desktop/av_base/video.h264";
+    FILE *outFile = fopen(out, "wb+");
+    
+    
     if(!yuvoutFile) {
         printf("Error, Failed to open file!\n");
         goto __ERROR;
@@ -214,22 +254,23 @@ void record_video() {
             frame->data[2][i] = pkt.data[307201+i*2];
         }
         
-        //640*480*1.5    (宽 x 高) x (yuv420=1.5/ yuv422=2/ yuv444=3)
-//        fwrite(pkt.data, 1, 460800, yuvoutFile);
         
+        //640*480*1.5    (宽 x 高) x (yuv420=1.5/ yuv422=2/ yuv444=3)
+        //fwrite(pkt.data, 1, 460800, yuvoutFile);
         fwrite(frame->data[0], 1, 307200, yuvoutFile);
         fwrite(frame->data[1], 1, 307200/4, yuvoutFile);
         fwrite(frame->data[2], 1, 307200/4, yuvoutFile);
-        
         fflush(yuvoutFile);
-           
-        
-//        avcodec_send_frame(<#AVCodecContext *avctx#>, <#const AVFrame *frame#>);
-//        avcodec_receive_packet(<#AVCodecContext *avctx#>, <#AVPacket *avpkt#>)
+ 
+        //设置连续pts
+        frame->pts = base++;
+        encode(enc_ctx, frame, newpkt, outFile);
         
         //release packet 释放packet
         av_packet_unref(&pkt);
     }
+    
+    encode(enc_ctx, NULL, newpkt, outFile);
     
 __ERROR:
     //close device and release ctx
