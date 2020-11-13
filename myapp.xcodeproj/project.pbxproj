@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		668E4811255D0997005790C8 /* pushstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 668E480F255D0997005790C8 /* pushstream.c */; };
+		668E4813255D0E1A005790C8 /* librtmp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668E4812255D0E1A005790C8 /* librtmp.dylib */; };
+		668E4814255D0E1A005790C8 /* librtmp.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 668E4812255D0E1A005790C8 /* librtmp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		668E4816255D0E58005790C8 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 668E4815255D0E4A005790C8 /* libz.1.2.8.tbd */; };
+		668E4818255D0EAA005790C8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668E4817255D0EAA005790C8 /* libcrypto.dylib */; };
+		668E4819255D0EAA005790C8 /* libcrypto.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 668E4817255D0EAA005790C8 /* libcrypto.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		668E481B255D0EB3005790C8 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668E481A255D0EB3005790C8 /* libssl.dylib */; };
+		668E481C255D0EB3005790C8 /* libssl.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 668E481A255D0EB3005790C8 /* libssl.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		669A5FC625480E7A00E57EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A5FC525480E7A00E57EEC /* AppDelegate.swift */; };
 		669A5FC825480E7A00E57EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669A5FC725480E7A00E57EEC /* ViewController.swift */; };
 		669A5FCA25480E7D00E57EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669A5FC925480E7D00E57EEC /* Assets.xcassets */; };
@@ -32,11 +40,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				668E4819255D0EAA005790C8 /* libcrypto.dylib in Embed Libraries */,
 				669A5FE02548156C00E57EEC /* libavformat.dylib in Embed Libraries */,
 				669A5FF2254C1FE900E57EEC /* libavcodec.dylib in Embed Libraries */,
 				669A5FE22548156C00E57EEC /* libavutil.dylib in Embed Libraries */,
 				669A5FDE2548156C00E57EEC /* libavdevice.dylib in Embed Libraries */,
 				669A5FEF254C08E200E57EEC /* libswresample.dylib in Embed Libraries */,
+				668E4814255D0E1A005790C8 /* librtmp.dylib in Embed Libraries */,
+				668E481C255D0EB3005790C8 /* libssl.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +55,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		668E480F255D0997005790C8 /* pushstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pushstream.c; sourceTree = "<group>"; };
+		668E4810255D0997005790C8 /* pushstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushstream.h; sourceTree = "<group>"; };
+		668E4812255D0E1A005790C8 /* librtmp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librtmp.dylib; path = "../../../../../usr/local/Cellar/rtmpdump/2.4+20151223_1/lib/librtmp.dylib"; sourceTree = "<group>"; };
+		668E4815255D0E4A005790C8 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		668E4817255D0EAA005790C8 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = "../../../../../usr/local/Cellar/openssl@1.1/1.1.1h/lib/libcrypto.dylib"; sourceTree = "<group>"; };
+		668E481A255D0EB3005790C8 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = "../../../../../usr/local/Cellar/openssl@1.1/1.1.1h/lib/libssl.dylib"; sourceTree = "<group>"; };
 		669A5FC225480E7A00E57EEC /* myapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		669A5FC525480E7A00E57EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		669A5FC725480E7A00E57EEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,10 +86,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				669A5FDF2548156C00E57EEC /* libavformat.dylib in Frameworks */,
+				668E4818255D0EAA005790C8 /* libcrypto.dylib in Frameworks */,
+				668E481B255D0EB3005790C8 /* libssl.dylib in Frameworks */,
 				669A5FF1254C1FE900E57EEC /* libavcodec.dylib in Frameworks */,
 				669A5FE12548156C00E57EEC /* libavutil.dylib in Frameworks */,
 				669A5FDD2548156C00E57EEC /* libavdevice.dylib in Frameworks */,
 				669A5FEE254C08E200E57EEC /* libswresample.dylib in Frameworks */,
+				668E4816255D0E58005790C8 /* libz.1.2.8.tbd in Frameworks */,
+				668E4813255D0E1A005790C8 /* librtmp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +120,8 @@
 		669A5FC425480E7A00E57EEC /* myapp */ = {
 			isa = PBXGroup;
 			children = (
+				668E480F255D0997005790C8 /* pushstream.c */,
+				668E4810255D0997005790C8 /* pushstream.h */,
 				66EE8BF925515074006FE609 /* video.c */,
 				66EE8BF825515074006FE609 /* video.h */,
 				66EE8BF3255149C8006FE609 /* audio.c */,
@@ -117,6 +140,10 @@
 		669A5FD92548156C00E57EEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				668E481A255D0EB3005790C8 /* libssl.dylib */,
+				668E4817255D0EAA005790C8 /* libcrypto.dylib */,
+				668E4815255D0E4A005790C8 /* libz.1.2.8.tbd */,
+				668E4812255D0E1A005790C8 /* librtmp.dylib */,
 				669A5FF0254C1FE900E57EEC /* libavcodec.dylib */,
 				669A5FED254C08E200E57EEC /* libswresample.dylib */,
 				669A5FDA2548156C00E57EEC /* libavdevice.dylib */,
@@ -198,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668E4811255D0997005790C8 /* pushstream.c in Sources */,
 				66EE8BF4255149C8006FE609 /* audio.c in Sources */,
 				669A5FC825480E7A00E57EEC /* ViewController.swift in Sources */,
 				669A5FC625480E7A00E57EEC /* AppDelegate.swift in Sources */,
@@ -350,13 +378,19 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/myapp/libs",
+					"/usr/local/Cellar/rtmpdump/2.4+20151223_1/lib",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = avdance.myapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "myapp/myapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/tianyang/Projects/XCodeProjects/myapp/myapp/include;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = (
+					/Users/tianyang/Projects/XCodeProjects/myapp/myapp/include,
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/include",
+					"/usr/local/Cellar/rtmpdump/2.4+20151223_1/include",
+				);
 			};
 			name = Debug;
 		};
@@ -378,12 +412,18 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/myapp/libs",
+					"/usr/local/Cellar/rtmpdump/2.4+20151223_1/lib",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = avdance.myapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "myapp/myapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/tianyang/Projects/XCodeProjects/myapp/myapp/include;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = (
+					/Users/tianyang/Projects/XCodeProjects/myapp/myapp/include,
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/include",
+					"/usr/local/Cellar/rtmpdump/2.4+20151223_1/include",
+				);
 			};
 			name = Release;
 		};
